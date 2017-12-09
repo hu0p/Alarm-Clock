@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style.css">
+    <title>Alarm Clock</title>
+</head>
+<body>
+    <h1>Alarm Clock</h1>
+    <div class="wrapper">
+        <label>Alarm Time</label>
+        <input type="time" name="" id="alarmTime" />
+        <button onclick="setAlarm(this);" id="alarmButton">Set Alarm</button>
+        <div id="alarmOptions">
+            <button onClick="snooze();">Snooze for 5</button>
+            <button onclick="stopAlarm();">Stop Alarm</button>
+        </div>
+    </div>
+</body>
+</html>
