@@ -55,7 +55,7 @@ label {
 #alarmButton {
     display: block;
     margin-top: 2em;
-    margin-right: 1.25em;
+    margin-right: .75em;
     float: right;
     border-radius: 5px;
     font-weight: 700;
