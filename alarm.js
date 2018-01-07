@@ -1,11 +1,18 @@
-const alarmSound = new Audio();
-alarmSound.src = "https://loganhoup.com/alarm.mp3";
+//declare variables we'll need
+const alarmButton = document.querySelector(".btn-alarm");
+const snoozeButton = document.querySelector(".btn-snooze");
+const stopButton = document.querySelector(".btn-stopalarm");
+const ALARMSOUND = new Audio();
+ALARMSOUND.src = "https://loganhoup.com/alarm.mp3";
 let alarmTimer;
 
-function setAlarm(button) {
+// initially hide snooze and stop alarm options until they're useful
+document.querySelector(".options").style.display = "none";
+
+function setAlarm() {
   let ms =
     new Date().setHours(0, 0, 0, 0) +
-    document.getElementById("alarmTime").valueAsNumber;
+    document.querySelector(".alarm-time").valueAsNumber;
   if (isNaN(ms)) {
     alert("You've got to give me something to work with here, friend.");
     return;
@@ -21,28 +28,36 @@ function setAlarm(button) {
     return;
   }
   alarmTimer = setTimeout(initAlarm, differenceInMs);
-  button.innerText = "Cancel Alarm";
-  button.setAttribute("onclick", "cancelAlarm(this);");
+  alarmButton.innerText = "Cancel Alarm";
+  alarmButton.setAttribute("onclick", "cancelAlarm(this);");
+  // display snooze and cancel buttons after alarm is set
+  document.querySelector(".options").style.display = "";
 }
 
-function cancelAlarm(button) {
+function cancelAlarm() {
   clearTimeout(alarmTimer);
-  button.innerText = "Set Alarm";
-  button.setAttribute("onclick", "setAlarm(this);");
+  alarmButton.innerText = "Set Alarm";
+  alarmButton.setAttribute("onclick", "setAlarm(this);");
+  document.querySelector(".options").style.display = "none";
 }
 
 function initAlarm() {
-  alarmSound.play();
-  document.getElementbyId("alarmOptions").style.display = "";
+  ALARMSOUND.play();
+  ALARMSOUND.loop = true;
+  document.querySelector(".options").style.display = "";
 }
 
 function stopAlarm() {
-  alarmSound.pause();
-  alarmSound.currentTime = 0;
-  document.getElementbyId("alarmOptions").style.display = "none";
+  ALARMSOUND.pause();
+  ALARMSOUND.currentTime = 0;
+  document.querySelector(".options").style.display = "none";
 }
 
 function snooze() {
   stopAlarm();
-  setTimeout(initAlarm, 6000);
+  setTimeout(initAlarm, 5000);
 }
+
+alarmButton.addEventListener("click", setAlarm, false);
+snoozeButton.addEventListener("click", snooze, false);
+stopButton.addEventListener("click", stopAlarm, false);

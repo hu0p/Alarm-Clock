@@ -1,107 +1,107 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
 * {
-    letter-spacing: 0.125em;
-    font-family: 'Raleway';
+  letter-spacing: 0.125em;
+  font-family: "Raleway";
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background-color: #E3F2FD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #e3f2fd;
 }
 
 .wrapper {
-    width: 265px;
-    padding: 1.25em;
-    background-color: #1E88E5;
-    border-radius: 3px;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+  width: 265px;
+  padding: 1.25em;
+  background-color: #1e88e5;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
-    color: #F4511E;
-    text-transform: uppercase;
-    font-size: 225%;
+  color: #f4511e;
+  text-transform: uppercase;
+  font-size: 225%;
 }
 
 input {
-    padding: 10px 5px 10px 40px;
-    margin: 2em 0;
-    text-align: center;
-    border-radius: 5px;
-    border: none;
+  padding: 10px 5px 10px 40px;
+  margin: 2em 0;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
 }
 
 input:hover {
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
-    transition: all .5s;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s;
 }
 
 label {
-    display: block;
-    color: #fff;
-    letter-spacing: 0.125em;
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 1.075em;
-    margin: 0 0 -.75em .25em;
+  display: block;
+  color: #fff;
+  letter-spacing: 0.125em;
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 1.075em;
+  margin: 0 0 -0.75em 0.25em;
 }
 
-#alarmButton {
-    display: block;
-    margin-top: 2em;
-    margin-right: .75em;
-    float: right;
-    border-radius: 5px;
-    font-weight: 700;
-    border: none;
-    padding: 1em;
-    color: #64DD17;
-    transition: all .5s;
+.btn-alarm {
+  display: block;
+  margin-top: 2em;
+  margin-right: 0.75em;
+  float: right;
+  border-radius: 5px;
+  font-weight: 700;
+  border: none;
+  padding: 1em;
+  color: #64dd17;
+  transition: all 0.5s;
 }
 
-#alarmButton:hover,
-#alarmOptions>button:hover {
-    color: #fff;
-    background-color: #55D753;
-    transition: all .5s;
-    transform: translateY(-1px);
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+.btn-alarm:hover,
+.options > button:hover {
+  color: #fff;
+  background-color: #55d753;
+  transition: all 0.5s;
+  transform: translateY(-1px);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-#alarmButton:active,
-#alarmOptions>button:active {
-    transition: all .1s;
-    transform: translateY(1px);
+.btn-alarm:active,
+.options > button:active {
+  transition: all 0.1s;
+  transform: translateY(1px);
 }
 
-#alarmOptions {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 
-#alarmOptions>button {
-    /*   display: none; */
-    margin-top: .5em;
-    margin-right: 1.25em;
-    border-radius: 5px;
-    font-weight: 700;
-    border: none;
-    padding: 1em;
-    color: #64DD17;
-    transition: all .5s;
+.options > button {
+  /*   display: none; */
+  margin-top: 0.5em;
+  margin-right: 1.25em;
+  border-radius: 5px;
+  font-weight: 700;
+  border: none;
+  padding: 1em;
+  color: #64dd17;
+  transition: all 0.5s;
 }
 
 :focus {
-    outline-color: #64DD17;
+  outline-color: #64dd17;
 }
 
 ::selection {
-    background-color: #FFEBEE;
+  background-color: #ffebee;
 }

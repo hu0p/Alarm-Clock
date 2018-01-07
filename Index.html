@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,19 @@
     <link rel="stylesheet" href="/style.css">
     <title>Alarm Clock</title>
 </head>
+
 <body>
     <h1>Alarm Clock</h1>
     <div class="wrapper">
         <label>Alarm Time</label>
-        <input type="time" name="" id="alarmTime" />
-        <button onclick="setAlarm(this);" id="alarmButton">Set Alarm</button>
-        <div id="alarmOptions">
-            <button onClick="snooze();">Snooze for 5</button>
-            <button onclick="stopAlarm();">Stop Alarm</button>
+        <input type="time" name="" class="alarm-time" />
+        <button class="btn-alarm">Set Alarm</button>
+        <div class="options">
+            <button class="btn-snooze">Snooze for 5s</button>
+            <button class="btn-stopalarm">Stop Alarm</button>
         </div>
     </div>
     <script src="/alarm.js"></script>
 </body>
+
 </html>
