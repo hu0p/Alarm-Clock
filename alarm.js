@@ -30,7 +30,6 @@ function setAlarm() {
   alarmTimer = setTimeout(initAlarm, differenceInMs);
   alarmButton.innerText = "Cancel Alarm";
   alarmButton.setAttribute("onclick", "cancelAlarm(this);");
-  // display snooze and cancel buttons after alarm is set
   document.querySelector(".options").style.display = "";
 }
 
