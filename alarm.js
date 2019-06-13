@@ -6,66 +6,58 @@ const time = document.querySelector(".alarm-time");
 const options = document.querySelector(".options");
 const alarmSound = new Audio();
 
-/* 
-* I cannot guarantee this url
-* will not change and break 
-* the sound functionality. 
-*/
+/*
+ * I cannot guarantee this url
+ * will not change and break
+ * the sound functionality.
+ */
 
 alarmSound.src = "http://soundbible.com/mp3/Rooster-SoundBible.com-1114473528.mp3";
 let alarmTimer;
 
-// initially hides snooze and stop alarm options until they're useful
+// initially hide snooze button until it's useful
 options.style.display = "none";
 
 function setAlarm() {
-  let ms =
-    new Date().setHours(0, 0, 0, 0) +
-    time.valueAsNumber;
+  let ms = new Date().setHours(0, 0, 0, 0) + time.valueAsNumber;
   if (isNaN(ms)) {
-    alert("You've got to give me something to work with here, friend.");
-    return;
+    return alert("You've got to give me something to work with here, friend.");
   }
   let alarm = new Date(ms);
   var dt = new Date().getTime();
   let differenceInMs = alarm.getTime() - dt;
 
   if (differenceInMs < 0) {
-    alert(
-      "It looks like that's a date from the past! Are you a time traveler?!"
-    );
-    return;
+    return alert("It looks like that's a date from the past! Are you a time traveler?!");
   }
   alarmTimer = setTimeout(initAlarm, differenceInMs);
   alarmButton.innerText = "Cancel Alarm";
-  alarmButton.setAttribute("onclick", "cancelAlarm(this);");
   options.style.display = "";
+  alarmButton.removeEventListener("click", setAlarm);
+  alarmButton.addEventListener("click", cancelAlarm);
 }
 
 function cancelAlarm() {
+  alarmSound.pause();
+  alarmSound.currentTime = 0;
   clearTimeout(alarmTimer);
   alarmButton.innerText = "Set Alarm";
-  alarmButton.setAttribute("onclick", "setAlarm(this);");
   options.style.display = "none";
+  alarmButton.removeEventListener("click", cancelAlarm);
+  alarmButton.addEventListener("click", setAlarm);
 }
 
 function initAlarm() {
   alarmSound.play();
   alarmSound.loop = true;
-  options.style.display = "";
-}
-
-function stopAlarm() {
-  alarmSound.pause();
-  alarmSound.currentTime = 0;
-  options.style.display = "none";
+  alarmButton.innerText = "Stop Alarm";
+  snoozeButton.addEventListener("click", snooze, false);
 }
 
 function snooze() {
-  stopAlarm();
+  alarmSound.pause();
+  alarmButton.innerText = "Cancel Alarm";
   setTimeout(initAlarm, 5000);
 }
 
 alarmButton.addEventListener("click", setAlarm, false);
-snoozeButton.addEventListener("click", snooze, false);
-stopButton.addEventListener("click", stopAlarm, false);
